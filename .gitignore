@@ -1,0 +1,14 @@
+# Data files are not committed (large, and the Kaggle data has its own license)
+data/raw/*
+data/sample/*
+data/processed/*
+!data/**/.gitkeep
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Local config
+.env

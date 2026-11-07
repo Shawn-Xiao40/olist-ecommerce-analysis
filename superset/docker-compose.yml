@@ -1,0 +1,18 @@
+# Local Superset: metadata in SQLite inside the container; the project's DuckDB file is mounted read-only.
+# See the "Superset dashboards" section of the README for usage.
+services:
+  superset:
+    build: .
+    container_name: ecommerce-superset
+    ports:
+      - "8088:8088"
+    env_file: .env
+    environment:
+      SUPERSET_CONFIG_PATH: /app/superset_config.py
+    volumes:
+      - ./superset_config.py:/app/superset_config.py:ro
+      - superset_home:/app/superset_home
+      - ../data/processed:/data:ro
+
+volumes:
+  superset_home:
